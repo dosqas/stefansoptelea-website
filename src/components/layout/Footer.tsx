@@ -1,6 +1,15 @@
 import { FaGithub } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
 
 export default function Footer() {
+  const [isFontLoaded, setIsFontLoaded] = useState(false);
+
+  useEffect(() => {
+    document.fonts.ready.then(() => {
+      setIsFontLoaded(true);
+    });
+  }, []);
+
   return (
     <footer className="bg-white font-thin font-roboto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8">
@@ -9,7 +18,7 @@ export default function Footer() {
             <p className="text-black text-sm md:text-base md:pr-1">
               © {new Date().getFullYear()} Ștefan Șoptelea. All rights reserved.
             </p>
-            <h1 className="text-sm md:text-base font-black font-britannic-bold text-blue-800">
+            <h1 className={`text-sm md:text-base font-black font-britannic-bold text-blue-800 transition-opacity duration-200 ${isFontLoaded ? 'opacity-100' : 'opacity-0'}`}>
               SOPoMATIC
             </h1>
           </div>

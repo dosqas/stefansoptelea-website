@@ -1,6 +1,6 @@
 'use client';
 import { Category } from "@/types/portfolio"
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 interface CategoryListProps {
   categories: Category[];
@@ -13,6 +13,9 @@ export default function CategoryList({
   activeCategory, 
   onCategoryChange
 }: CategoryListProps) {
+  const [viewBox, setViewBox] = useState("0 0 300 60");
+  const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     const adjustSVGViewBox = () => {
       const titleSvg = document.getElementById("titlesvg");
@@ -21,22 +24,24 @@ export default function CategoryList({
         if (textElement) {
           try {
             const bbox = textElement.getBBox();
-            const viewBox = [
+            const newViewBox = [
               bbox.x, 
               bbox.y, 
               bbox.width, 
               bbox.height
             ].join(" ");
-            titleSvg.setAttribute("viewBox", viewBox);
+            setViewBox(newViewBox);
+            setIsLoaded(true);
           } catch {
-            console.log("SVG not ready yet, retrying...");
-            setTimeout(adjustSVGViewBox, 100);
+            setTimeout(adjustSVGViewBox, 50);
           }
         }
       }
     };
 
-    setTimeout(adjustSVGViewBox, 100);
+    // Run immediately and on font load
+    adjustSVGViewBox();
+    document.fonts.ready.then(adjustSVGViewBox);
 
     window.addEventListener('resize', adjustSVGViewBox);
     
@@ -51,8 +56,8 @@ export default function CategoryList({
         <div className="mb-1 md:mb-3 text-left md:text-center">
           <svg 
             id="titlesvg"
-            className="w-full h-auto" 
-            viewBox="0 0 300 60" 
+            className={`w-full h-auto transition-opacity duration-200 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+            viewBox={viewBox}
             xmlns="http://www.w3.org/2000/svg"
           >
             <text
