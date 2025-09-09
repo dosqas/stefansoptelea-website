@@ -1,5 +1,6 @@
 'use client';
 import { Category } from "@/types/portfolio"
+import { useEffect } from 'react';
 
 interface CategoryListProps {
   categories: Category[];
@@ -12,13 +13,61 @@ export default function CategoryList({
   activeCategory, 
   onCategoryChange
 }: CategoryListProps) {
+  useEffect(() => {
+    const adjustSVGViewBox = () => {
+      const titleSvg = document.getElementById("titlesvg");
+      if (titleSvg) {
+        const textElement = titleSvg.querySelector("text");
+        if (textElement) {
+          try {
+            const bbox = textElement.getBBox();
+            const viewBox = [
+              bbox.x, 
+              bbox.y, 
+              bbox.width, 
+              bbox.height
+            ].join(" ");
+            titleSvg.setAttribute("viewBox", viewBox);
+          } catch (error) {
+            console.log("SVG not ready yet, retrying...");
+            setTimeout(adjustSVGViewBox, 100);
+          }
+        }
+      }
+    };
+
+    setTimeout(adjustSVGViewBox, 100);
+
+    window.addEventListener('resize', adjustSVGViewBox);
+    
+    return () => {
+      window.removeEventListener('resize', adjustSVGViewBox);
+    };
+  }, []);
+
   return (
     <div className="bg-white h-auto md:h-screen pt-4">
       <div className="p-3 md:p-6">
-        <div className="mb-4 md:mb-6">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-black font-britannic-bold text-blue-800">
-            SOPoMATIC
-          </h1>
+        <div className="mb-1 md:mb-3 text-left md:text-center">
+          <svg 
+            id="titlesvg"
+            className="w-full h-auto" 
+            viewBox="0 0 300 60" 
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <text
+              x="0"
+              y="45"
+              className="fill-blue-800"
+              style={{
+                fontFamily: 'Britannic Bold, Arial Black, sans-serif',
+                fontWeight: 'bold',
+                fontSize: '40px'
+              }}
+            >
+              SOPoMATIC
+            </text>
+          </svg>
         </div>
         <nav className="space-y-1">
           {categories.map((category) => (

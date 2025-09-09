@@ -5,9 +5,14 @@ export default function Footer() {
     <footer className="bg-white font-thin font-roboto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8">
         <div className="text-center space-y-2 md:space-y-0 md:flex md:justify-between md:items-center">
-          <p className="text-black text-sm md:text-base">
-            © {new Date().getFullYear()} Stefan Șoptelea. All rights reserved.
-          </p>
+          <div className="flex">
+            <p className="text-black text-sm md:text-base pr-1">
+              © {new Date().getFullYear()} Stefan Șoptelea. All rights reserved.
+            </p>
+            <h1 className="text-sm md:text-base font-black font-britannic-bold text-blue-800">
+              SOPoMATIC
+            </h1>
+          </div>
           <p className="text-gray-600 text-xs md:text-sm flex items-center justify-center md:justify-end">
             Site by{' '}
             <a 
