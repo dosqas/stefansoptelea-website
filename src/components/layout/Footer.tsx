@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="text-center space-y-2 md:space-y-0 md:flex md:justify-between md:items-center">
           <div className="flex">
             <p className="text-black text-sm md:text-base pr-1">
-              © {new Date().getFullYear()} Stefan Șoptelea. All rights reserved.
+              © {new Date().getFullYear()} Ștefan Șoptelea. All rights reserved.
             </p>
             <h1 className="text-sm md:text-base font-black font-britannic-bold text-blue-800">
               SOPoMATIC
