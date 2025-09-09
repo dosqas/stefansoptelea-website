@@ -1,4 +1,4 @@
-import { PortfolioData, Category } from '@/types/portfolio';
+import { PortfolioData, Category, Photo } from '@/types/portfolio';
 
 const projectCategories = [
   { id: 'productDesign', name: 'Product Design' },
@@ -29,7 +29,6 @@ function generateCategories(): Category[] {
   });
   
   projectCategories.forEach((cat, index) => {
-    const photoCount = portfolioPhotos[cat.id]?.length || 0;
     categories.push({
       id: cat.id,
       name: cat.name,
@@ -42,7 +41,7 @@ function generateCategories(): Category[] {
   return categories.sort((a, b) => a.order - b.order);
 }
 
-const portfolioPhotos: Record<string, any[]> = {
+const portfolioPhotos: Record<string, Photo[]> = {
   portraits: [
     {
       id: 'p1',

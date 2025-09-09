@@ -28,7 +28,7 @@ export default function CategoryList({
               bbox.height
             ].join(" ");
             titleSvg.setAttribute("viewBox", viewBox);
-          } catch (error) {
+          } catch {
             console.log("SVG not ready yet, retrying...");
             setTimeout(adjustSVGViewBox, 100);
           }
