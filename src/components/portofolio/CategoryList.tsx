@@ -53,12 +53,13 @@ export default function CategoryList({
   return (
     <div className="bg-white h-auto md:h-screen pt-4">
       <div className="p-3 md:p-6">
-        <div className="mb-1 md:mb-3 text-left md:text-center">
+        <div className="mb-1 md:mb-3 text-left md:text-center h-12 md:h-16 flex items-center">
           <svg 
             id="titlesvg"
-            className={`w-full h-auto transition-opacity duration-200 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+            className={`w-full h-full transition-opacity duration-200 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
             viewBox={viewBox}
             xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid meet"
           >
             <text
               x="0"
