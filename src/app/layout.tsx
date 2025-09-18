@@ -40,6 +40,13 @@ export default function RootLayout({
           type="font/ttf"
           crossOrigin="anonymous"
         />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/home/1.jpg"
+          imageSrcSet="/images/home/1.jpg"
+          imageSizes="100vw"
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

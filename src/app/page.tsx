@@ -37,17 +37,19 @@ export default function Home() {
 
   return (
     <Layout>
-      <div className="flex flex-col md:flex-row min-h-screen">
-        <div className="w-full h-auto md:h-full md:w-64 lg:w-82 xl:w-90 md:flex-shrink-0">
+      <div className="flex flex-col md:flex-row min-h-screen justify-items-start md:pt-10">
+        <div className="flex-[0.15] flex-shrink" />
+        <div className="w-full h-auto md:h-full md:w-72 lg:w-90 xl:w-98 md:flex-shrink-0">
           <CategoryList
             categories={portfolioData.categories}
             activeCategory={activeCategory}
             onCategoryChange={setActiveCategory}
           />
         </div>
-        <div className="flex-1 md:overflow-hidden">
+        <div className="flex-1 w-auto md:overflow-hidden">
           {renderContent()}
         </div>
+        <div className="flex-[0.45] flex-shrink" />
       </div>
     </Layout>
   );

@@ -18,7 +18,7 @@ export default function Footer() {
             <p className="text-black text-sm md:text-base md:pr-1">
               © {new Date().getFullYear()} Ștefan Șoptelea. All rights reserved.
             </p>
-            <h1 className={`text-sm md:text-base font-black font-britannic-bold text-blue-800 'opacity-100'`}>
+            <h1 className={`text-sm md:text-base font-black font-britannic-bold text-blue-800 opacity-100`}>
               SOPoMATIC
             </h1>
           </div>
