@@ -39,7 +39,6 @@ export default function CategoryList({
       }
     };
 
-    // Run immediately and on font load
     adjustSVGViewBox();
     document.fonts.ready.then(adjustSVGViewBox);
 
@@ -51,7 +50,7 @@ export default function CategoryList({
   }, []);
 
   return (
-    <div className="bg-white h-auto md:h-screen pt-4">
+    <div className="h-auto md:h-screen pt-4">
       <div className="p-3 md:p-6">
         <div className="mb-1 md:mb-3 text-left md:text-center h-12 md:h-16 flex items-center">
           <svg 
@@ -80,7 +79,7 @@ export default function CategoryList({
             <button
               key={category.id}
               onClick={() => onCategoryChange(category.id)}
-              className={`w-full border border-blue-800 text-left px-2 md:px-4 py-1 my-1 md:my-2 transition-colors duration-400 flex justify-between items-center font-thin font-roboto text-sm md:text-base ${
+              className={`w-full border border-blue-800 text-left px-2 md:px-4 py-1 my-1 md:my-2 transition-colors duration-400 flex justify-between items-center font-helvetica text-sm md:text-base ${
                 activeCategory === category.id
                   ? 'bg-blue-800 text-white'
                   : 'bg-white text-black hover:bg-blue-800 hover:text-white'

@@ -2,7 +2,7 @@ import { PortfolioData, Category, Photo } from '@/types/portfolio';
 
 const projectCategories = [
   { id: 'productDesign', name: 'Product Design' },
-  { id: 'interiorDesign', name: 'Interior Design' },
+  { id: 'visMerchIntDesign', name: 'Visual Merchandise & Interior Design' },
   { id: 'cinematicPhotography', name: 'Cinematic Photography' },
   { id: 'photoManipulation', name: 'Photo Manipulation' },
   { id: 'architecturePhotography', name: 'Architecture Photography' },

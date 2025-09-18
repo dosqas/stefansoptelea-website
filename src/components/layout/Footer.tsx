@@ -11,14 +11,14 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="bg-white font-thin font-roboto">
+    <footer className="font-thin font-helvetica">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8">
         <div className="text-center space-y-2 md:space-y-0 md:flex md:justify-between md:items-center">
           <div className="flex flex-col md:flex-row md:items-center">
             <p className="text-black text-sm md:text-base md:pr-1">
               © {new Date().getFullYear()} Ștefan Șoptelea. All rights reserved.
             </p>
-            <h1 className={`text-sm md:text-base font-black font-britannic-bold text-blue-800 transition-opacity duration-200 ${isFontLoaded ? 'opacity-100' : 'opacity-0'}`}>
+            <h1 className={`text-sm md:text-base font-black font-britannic-bold text-blue-800 'opacity-100'`}>
               SOPoMATIC
             </h1>
           </div>

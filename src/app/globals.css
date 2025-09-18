@@ -12,8 +12,17 @@
   font-family: 'Britannic Bold', 'Arial Black', sans-serif !important;
 }
 
-.font-roboto {
-  font-family: 'Roboto', sans-serif !important;
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/helvetica.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-helvetica {
+  font-family: 'Helvetica' !important;
+  font-weight: 100 !important;
 }
 
 :root {
@@ -31,5 +40,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Helvetica', Arial, Helvetica, sans-serif;
 }
