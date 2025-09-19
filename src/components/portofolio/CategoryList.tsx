@@ -50,7 +50,7 @@ export default function CategoryList({
   }, []);
 
   return (
-    <div className="h-auto md:h-screen pt-4">
+    <div className="h-auto md:min-h-screen md:pt-20">
       <div className="p-3 md:p-6">
         <div className="mb-1 md:mb-3 text-left md:text-center h-20 md:h-20 flex items-center">
           <svg 

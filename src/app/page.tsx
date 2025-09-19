@@ -7,6 +7,7 @@ import CategoryGallery from '@/components/portofolio/CategoryGallery';
 import HomeContent from '@/components/content/HomeContent';
 import BioContent from '@/components/content/BioContent';
 import ContactContent from '@/components/content/ContactContent';
+import { AnimatePresence, motion } from "framer-motion";
 import { portfolioData } from '@/data/portfolio';
 
 export default function Home() {
@@ -37,7 +38,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <div className="flex flex-col md:flex-row min-h-screen justify-items-start md:pt-10">
+      <div className="flex flex-col md:flex-row justify-items-start">
         <div className="flex-[0.15] flex-shrink" />
         <div className="w-full h-auto md:h-full md:w-72 lg:w-90 xl:w-98 md:flex-shrink-0">
           <CategoryList
@@ -47,7 +48,18 @@ export default function Home() {
           />
         </div>
         <div className="flex-1 w-auto md:overflow-hidden">
-          {renderContent()}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeCategory}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15 }}
+              className="h-full"
+            >
+              {renderContent()}
+            </motion.div>
+          </AnimatePresence>
         </div>
         <div className="flex-[0.45] flex-shrink" />
       </div>

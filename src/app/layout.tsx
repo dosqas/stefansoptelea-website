@@ -44,7 +44,6 @@ export default function RootLayout({
           rel="preload"
           as="image"
           href="/images/home/1.jpg"
-          imageSrcSet="/images/home/1.jpg"
           imageSizes="100vw"
         />
       </head>
