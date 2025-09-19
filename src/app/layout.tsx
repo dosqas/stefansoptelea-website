@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Head from "next/head";
 import { Analytics } from "@vercel/analytics/next"
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -25,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
+      <Head>
         <link
           rel="preload"
           href="/fonts/helvetica.ttf"
@@ -46,7 +47,13 @@ export default function RootLayout({
           href="/images/home/1.jpg"
           imageSizes="100vw"
         />
-      </head>
+        <link
+          rel="preload"
+          as="image"
+          href="/images/bio/1.jpg"
+          imageSizes="100vw"
+        />
+      </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
