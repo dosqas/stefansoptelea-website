@@ -79,7 +79,7 @@ export default function CategoryList({
             <button
               key={category.id}
               onClick={() => onCategoryChange(category.id)}
-              className={`w-full border border-blue-800 text-left px-2 md:px-4 py-1 my-1 md:my-2 transition-colors duration-400 flex justify-between items-center font-helvetica text-[0.825rem] md:text-[0.95rem] ${
+              className={`w-full border border-blue-800 text-left px-2 md:px-[10] py-[2] my-1 md:my-2 transition-colors duration-400 flex justify-between items-center font-helvetica text-[0.825rem] md:text-[0.95rem] ${
                 activeCategory === category.id
                   ? 'bg-blue-800 text-white'
                   : 'bg-white text-black hover:bg-blue-800 hover:text-white'
