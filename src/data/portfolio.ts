@@ -1,12 +1,12 @@
 import { PortfolioData, Category, Photo } from '@/types/portfolio';
 
 const projectCategories = [
-  { id: 'productDesign', name: 'Product Design' },
-  { id: 'visMerchIntDesign', name: 'Visual Merchandise & Interior Design' },
-  { id: 'cinematicPhotography', name: 'Cinematic Photography' },
-  { id: 'photoManipulation', name: 'Photo Manipulation' },
-  { id: 'architecturePhotography', name: 'Architecture Photography' },
-  { id: 'architectureRenders', name: 'Architecture Renders' },
+  { id: 'productDesign', name: 'Product Design', projectType: 'ample' },
+  { id: 'visMerchIntDesign', name: 'Visual Merchandise & Interior Design', projectType: 'ample' },
+  { id: 'cinematicPhotography', name: 'Cinematic Photography', projectType: 'standalone' },
+  { id: 'photoManipulation', name: 'Photo Manipulation', projectType: 'standalone' },
+  { id: 'architecturePhotography', name: 'Architecture Photography', projectType: 'standalone' },
+  { id: 'architectureRenders', name: 'Architecture Renders', projectType: 'standalone' },
 ];
 
 const fixedCategories = [
@@ -33,6 +33,7 @@ function generateCategories(): Category[] {
       id: cat.id,
       name: cat.name,
       type: 'project',
+      projectType: cat.projectType,
       order: index + 1,
       displayName: `${index + 1}. ${cat.name}`
     });
@@ -42,7 +43,6 @@ function generateCategories(): Category[] {
 }
 
 const portfolioPhotos: Record<string, Photo[]> = {
-  // First two categories - Project type (3 per row, multiple images per project)
   productDesign: [
     {
       id: 'pd1',
@@ -155,7 +155,6 @@ const portfolioPhotos: Record<string, Photo[]> = {
       images: ['/images/2_visMerchIntDesign/7_1.jpg', '/images/2_visMerchIntDesign/7_2.jpg', '/images/2_visMerchIntDesign/7_3.jpg']
     },
   ],
-  // Other categories - Standalone type (5 per row, single images)
   cinematicPhotography: [
     {
       id: 'cp1',

@@ -12,6 +12,7 @@ export interface Category {
   id: string;
   name: string;
   type: 'fixed' | 'project';
+  projectType?: string;
   order: number;
   displayName: string;
 }
