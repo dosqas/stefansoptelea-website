@@ -42,3 +42,12 @@ body {
   color: var(--foreground);
   font-family: 'Helvetica', Arial, Helvetica, sans-serif;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

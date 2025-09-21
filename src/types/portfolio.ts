@@ -4,6 +4,8 @@ export interface Photo {
   alt: string;
   title?: string;
   description?: string;
+  thumbnail?: string;
+  images?: string[];
 }
 
 export interface Category {

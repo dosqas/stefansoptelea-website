@@ -31,6 +31,7 @@ export default function Home() {
           <CategoryGallery
             categoryName={activeCategoryData.displayName}
             photos={photos}
+            categoryType={activeCategoryData.type === 'project' ? 'project' : 'standalone'}
           />
         );
     }
