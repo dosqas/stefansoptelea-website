@@ -32,6 +32,7 @@ export default function ImageOverlay({
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const getCurrentProjectImages = (): ProjectImage[] => {
     if (!isProjectGallery) {
@@ -86,6 +87,17 @@ export default function ImageOverlay({
       document.body.style.overflow = 'unset';
     };
   }, [isOpen, currentIndex]);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -150,14 +162,30 @@ export default function ImageOverlay({
   const currentImage = currentProjectImages[currentImageIndex];
 
   return (
-    <div 
-      className={`fixed inset-0 z-50 flex items-center justify-center ${isFullscreen ? 'p-0' : 'p-4'}`}
-      style={{ backgroundColor: 'rgba(0, 0, 0, 0.75)' }}
-      onClick={handleOverlayClick}
-    >
+    <>
+      <style jsx>{`
+        .overlay-button {
+          background-color: rgba(25, 60, 184, 0.3);
+          transition: background-color 0.2s ease;
+        }
+        .overlay-button:hover {
+          background-color: rgba(25, 60, 184, 0.5);
+        }
+        .image-counter {
+          background-color: rgba(25, 60, 184, 0.3);
+        }
+      `}</style>
+      <div 
+        className={`fixed inset-0 z-50 flex items-center justify-center ${isFullscreen ? 'p-0' : 'p-4'}`}
+        style={{ backgroundColor: 'rgba(0, 0, 0, 0.75)' }}
+        onClick={handleOverlayClick}
+      >
       {/* Main content */}
-      <div className={`flex items-center justify-center ${isFullscreen ? 'w-full h-full' : 'max-w-7xl max-h-full'}`}>
-        <div className="flex items-center gap-8">
+      <div 
+        className={`flex items-center justify-center ${isFullscreen ? 'w-full h-full' : 'max-w-7xl max-h-full'}`}
+        style={{ backgroundColor: !isMobile ? 'rgba(0, 0, 0, 0.6)' : "" }}
+      >
+        <div className="flex flex-col md:flex-row items-center gap-8">
           {/* Image with sliding animation and buttons */}
           <div className={`relative overflow-hidden ${isFullscreen ? 'max-w-none max-h-none' : 'max-w-4xl max-h-[80vh]'}`}>
             {/* Navigation arrows - positioned inside image container */}
@@ -166,8 +194,7 @@ export default function ImageOverlay({
                 <button
                   onClick={handlePrevious}
                   disabled={isAnimating}
-                  className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-10 text-white hover:text-gray-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-900 bg-opacity-30 rounded-full p-1 sm:p-2 backdrop-blur-sm"
-                  style={{ backgroundColor: 'rgba(25, 60, 184, 0.6)' }}
+                  className="overlay-button absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-10 text-white hover:text-gray-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed rounded-full p-1 sm:p-2 backdrop-blur-sm"
                   aria-label="Previous image"
                 >
                   <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -177,8 +204,7 @@ export default function ImageOverlay({
                 <button
                   onClick={handleNext}
                   disabled={isAnimating}
-                  className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-10 text-white hover:text-gray-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-900 bg-opacity-30 rounded-full p-1 sm:p-2 backdrop-blur-sm"
-                  style={{ backgroundColor: 'rgba(25, 60, 184, 0.6)' }}
+                  className="overlay-button absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-10 text-white hover:text-gray-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed rounded-full p-1 sm:p-2 backdrop-blur-sm"
                   aria-label="Next image"
                 >
                   <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -191,8 +217,7 @@ export default function ImageOverlay({
             {/* Close button - positioned inside image container */}
             <button
               onClick={onClose}
-              className="absolute top-2 sm:top-4 right-2 sm:right-4 z-10 text-white hover:text-gray-300 transition-colors hover:bg-blue-900 bg-opacity-30 rounded-full p-1 sm:p-2 backdrop-blur-sm"
-              style={{ backgroundColor: 'rgba(25, 60, 184, 0.6)' }}
+              className="overlay-button absolute top-2 sm:top-4 right-2 sm:right-4 z-10 text-white hover:text-gray-300 transition-colors rounded-full p-1 sm:p-2 backdrop-blur-sm"
               aria-label="Close"
             >
               <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -203,8 +228,7 @@ export default function ImageOverlay({
             {/* Fullscreen toggle button - positioned inside image container */}
             <button
               onClick={toggleFullscreen}
-              className="absolute top-2 sm:top-4 right-12 sm:right-16 z-10 text-white hover:text-gray-300 transition-colors hover:bg-blue-900 bg-opacity-30 rounded-full p-1 sm:p-2 backdrop-blur-sm"
-              style={{ backgroundColor: 'rgba(25, 60, 184, 0.6)' }}
+              className="overlay-button absolute top-2 sm:top-4 right-12 sm:right-16 z-10 text-white hover:text-gray-300 transition-colors rounded-full p-1 sm:p-2 backdrop-blur-sm"
               aria-label="Toggle fullscreen"
             >
               <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -218,7 +242,7 @@ export default function ImageOverlay({
 
             {/* Image counter - positioned inside image container */}
             {totalProjectImages > 1 && (
-              <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 text-white text-xs sm:text-sm bg-blue-800 bg-opacity-30 rounded-full px-2 sm:px-3 py-1 backdrop-blur-sm z-10">
+              <div className="image-counter absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 text-white text-xs sm:text-sm bg-blue-800 bg-opacity-30 rounded-full px-2 sm:px-3 py-1 backdrop-blur-sm z-10">
                 {currentImageIndex + 1} / {totalProjectImages}
               </div>
             )}
@@ -252,7 +276,7 @@ export default function ImageOverlay({
             </div>
           </div>
 
-          {/* Info panel (only show when not in fullscreen) */}
+          {/* Info panel (only shown when not in fullscreen) */}
           {!isFullscreen && (
             <div className="text-white max-w-md">
               <h3 className="text-2xl font-bold mb-4">{currentImage.projectTitle}</h3>
@@ -264,5 +288,6 @@ export default function ImageOverlay({
         </div>
       </div>
     </div>
+    </>
   );
 }
