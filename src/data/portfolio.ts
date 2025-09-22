@@ -98,7 +98,7 @@ const portfolioPhotos: Record<string, Photo[]> = {
       alt: 'Visual Merchandise Project 1',
       title: 'Retail Store Layout',
       description: 'Complete visual merchandising solution for a luxury fashion boutique. Includes window displays, product placement, and lighting design.',
-      images: ['/images/2_visMerchIntDesign/1_1.jpg', '/images/2_visMerchIntDesign/1_2.jpg', '/images/2_visMerchIntDesign/1_3.jpg', '/images/2_visMerchIntDesign/1_4.jpg', '/images/2_visMerchIntDesign/1_5.jpg']
+      images: ['/images/2_visMerchIntDesign/1_2.jpg', '/images/2_visMerchIntDesign/1_3.jpg', '/images/2_visMerchIntDesign/1_4.jpg', '/images/2_visMerchIntDesign/1_5.jpg']
     },
     {
       id: 'vm2',
@@ -107,7 +107,7 @@ const portfolioPhotos: Record<string, Photo[]> = {
       alt: 'Visual Merchandise Project 2',
       title: 'Retail Store Layout',
       description: 'Complete visual merchandising solution for a luxury fashion boutique. Includes window displays, product placement, and lighting design.',
-      images: ['/images/2_visMerchIntDesign/2_1.jpg', '/images/2_visMerchIntDesign/2_2.jpg', '/images/2_visMerchIntDesign/2_3.jpg', '/images/2_visMerchIntDesign/2_4.jpg']
+      images: ['/images/2_visMerchIntDesign/2_2.jpg', '/images/2_visMerchIntDesign/2_3.jpg', '/images/2_visMerchIntDesign/2_4.jpg']
     },
     {
       id: 'vm3',
@@ -116,7 +116,7 @@ const portfolioPhotos: Record<string, Photo[]> = {
       alt: 'Visual Merchandise Project 3',
       title: 'Retail Store Layout',
       description: 'Complete visual merchandising solution for a luxury fashion boutique. Includes window displays, product placement, and lighting design.',
-      images: ['/images/2_visMerchIntDesign/3_1.jpg', '/images/2_visMerchIntDesign/3_2.jpg']
+      images: ['/images/2_visMerchIntDesign/3_2.jpg']
     },
     {
       id: 'vm4',
@@ -125,7 +125,7 @@ const portfolioPhotos: Record<string, Photo[]> = {
       alt: 'Visual Merchandise Project 4',
       title: 'Retail Store Layout',
       description: 'Complete visual merchandising solution for a luxury fashion boutique. Includes window displays, product placement, and lighting design.',
-      images: ['/images/2_visMerchIntDesign/4_1.jpg', '/images/2_visMerchIntDesign/4_2.jpg', '/images/2_visMerchIntDesign/4_3.jpg']
+      images: ['/images/2_visMerchIntDesign/4_2.jpg', '/images/2_visMerchIntDesign/4_3.jpg']
     },
     {
       id: 'vm5',
@@ -134,7 +134,7 @@ const portfolioPhotos: Record<string, Photo[]> = {
       alt: 'Visual Merchandise Project 5',
       title: 'Retail Store Layout',
       description: 'Complete visual merchandising solution for a luxury fashion boutique. Includes window displays, product placement, and lighting design.',
-      images: ['/images/2_visMerchIntDesign/5_1.jpg', '/images/2_visMerchIntDesign/5_2.jpg', '/images/2_visMerchIntDesign/5_3.jpg', '/images/2_visMerchIntDesign/5_4.jpg', '/images/2_visMerchIntDesign/5_5.jpg', '/images/2_visMerchIntDesign/5_6.jpg']
+      images: ['/images/2_visMerchIntDesign/5_2.jpg', '/images/2_visMerchIntDesign/5_3.jpg', '/images/2_visMerchIntDesign/5_4.jpg', '/images/2_visMerchIntDesign/5_5.jpg', '/images/2_visMerchIntDesign/5_6.jpg']
     },
     {
       id: 'vm6',
@@ -143,12 +143,12 @@ const portfolioPhotos: Record<string, Photo[]> = {
       alt: 'Visual Merchandise Project 6',
       title: 'Retail Store Layout',
       description: 'Complete visual merchandising solution for a luxury fashion boutique. Includes window displays, product placement, and lighting design.',
-      images: ['/images/2_visMerchIntDesign/6_1.jpg', '/images/2_visMerchIntDesign/6_2.jpg', '/images/2_visMerchIntDesign/6_3.jpg']
+      images: ['/images/2_visMerchIntDesign/6_2.jpg', '/images/2_visMerchIntDesign/6_3.jpg', '/images/2_visMerchIntDesign/6_1.jpg']
     },
     {
       id: 'vm7',
-      src: '/images/2_visMerchIntDesign/7_1.jpg',
-      thumbnail: '/images/2_visMerchIntDesign/7_1.jpg',
+      src: '/images/6_architectureRenders/15.jpg',
+      thumbnail: '/images/6_architectureRenders/15.jpg',
       alt: 'Visual Merchandise Project 7',
       title: 'Retail Store Layout',
       description: 'Complete visual merchandising solution for a luxury fashion boutique. Includes window displays, product placement, and lighting design.',
