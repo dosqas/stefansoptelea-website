@@ -9,6 +9,7 @@ import BioContent from '@/components/content/BioContent';
 import ContactContent from '@/components/content/ContactContent';
 import { AnimatePresence, motion } from "framer-motion";
 import { portfolioData } from '@/data/portfolio';
+import Footer from '@/components/layout/Footer';
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState('home');
@@ -49,19 +50,22 @@ export default function Home() {
             onCategoryChange={setActiveCategory}
           />
         </div>
-        <div className="flex-1 w-auto md:overflow-hidden md:h-screen">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeCategory}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.15 }}
-              className="h-full"
-            >
-              {renderContent()}
-            </motion.div>
-          </AnimatePresence>
+        <div className="flex-1 w-auto md:h-screen flex flex-col">
+          <div className="flex-1 overflow-auto no-scrollbar">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeCategory}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.15 }}
+                className="h-full"
+              >
+                {renderContent()}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+          <Footer />
         </div>
         <div className="flex-[0.25] flex-shrink" />
       </div>

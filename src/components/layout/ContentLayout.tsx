@@ -15,11 +15,10 @@ export default function ContentLayout({ children, showFooter = true }: ContentLa
         {showFooter && <Footer />}
       </div>
 
-      <div className="hidden md:flex md:flex-1 md:flex-col md:justify-between md:h-screen md:pt-30 overflow-auto no-scrollbar">
+      <div className="hidden md:flex md:flex-1 md:flex-col md:pt-30 overflow-auto no-scrollbar">
         <div className="flex-1 overflow-auto no-scrollbar" style={{ scrollbarGutter: 'stable' }}>
           {children}
         </div>
-        {showFooter && <Footer />}
       </div>
     </>
   );
