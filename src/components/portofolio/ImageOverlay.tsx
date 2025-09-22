@@ -10,7 +10,7 @@ interface ImageOverlayProps {
   photos: Photo[];
   currentIndex: number;
   onIndexChange: (index: number) => void;
-  isProjectGallery: boolean; // true for project galleries (carousel), false for standalone
+  isProjectGallery: boolean;
 }
 
 interface ProjectImage {
