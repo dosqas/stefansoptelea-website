@@ -33,10 +33,8 @@ export default function ImageOverlay({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // Get current project and its images
   const getCurrentProjectImages = (): ProjectImage[] => {
     if (!isProjectGallery) {
-      // For standalone galleries, return single image
       const photo = photos[currentIndex];
       return [{
         src: photo.src,
@@ -47,7 +45,6 @@ export default function ImageOverlay({
       }];
     }
 
-    // For project galleries, get images from current project only
     const currentPhoto = photos[currentIndex];
     const projectImages: ProjectImage[] = [];
     
@@ -80,7 +77,6 @@ export default function ImageOverlay({
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
-      // Reset image index when overlay opens or when project changes
       setCurrentImageIndex(0);
     } else {
       document.body.style.overflow = 'unset';
@@ -89,7 +85,7 @@ export default function ImageOverlay({
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isOpen, currentIndex]); // Reset when project changes
+  }, [isOpen, currentIndex]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -144,7 +140,6 @@ export default function ImageOverlay({
   };
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    // Only close if clicking on the overlay itself, not on child elements
     if (e.target === e.currentTarget) {
       onClose();
     }
@@ -234,7 +229,7 @@ export default function ImageOverlay({
                 isAnimating ? 'transform-gpu' : ''
               }`}
               style={{
-                transform: `translateX(-${currentImageIndex * 100}%)`,
+                transform: `translateX(-${currentImageIndex * (100 / totalProjectImages)}%)`,
                 width: `${totalProjectImages * 100}%`
               }}
             >
